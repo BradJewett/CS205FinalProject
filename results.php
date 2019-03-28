@@ -23,7 +23,7 @@
 
 <body>
 
-    
+    <a href='./search.php'>New Search</a>
 
 </body>
 </html>
