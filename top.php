@@ -12,7 +12,7 @@
         <script src="//html5shim.googlecode.com/sin/trunk/html5.js"></script>
         <![endif]-->
 
-        <link rel="stylesheet" href="css/base.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="custom.css" type="text/css" media="screen">
 
         <?php
         // %^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%
@@ -32,3 +32,9 @@
     </head>
 
     <!-- **********************     Body section      ********************** -->
+     <?php
+    print '<body id="' . $PATH_PARTS['filename'] . '">';
+    include 'header.php';
+    include 'nav.php';
+    
+    ?>
