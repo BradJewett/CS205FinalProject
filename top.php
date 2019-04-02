@@ -3,7 +3,7 @@
     <head>
         <title>CS205 Sample Query</title>
         <meta charset="utf-8">
-        <meta name="author" content="Junfei Ma">
+        <meta name="author" content="Junfei Ma, Owen Bruning, Brad Jewett, Evie Wight">
         <meta name="description" content="CS205 Sample Query">
 
         <meta name="viewport" content="width=device-width, initial-scale=1">

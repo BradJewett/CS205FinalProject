@@ -1,4 +1,5 @@
 
+/* -----------------------Nav---------------------*/
 nav{
     background-color: menu;
     float :top
@@ -38,4 +39,52 @@ footer {
   background-color: lightsteelblue;
   
   text-align: center;
+}
+/* -----------------------Header---------------------*/
+
+header h1{
+    padding-bottom: 2em;
+    padding-top: 75px;
+    text-align: center;
+}
+
+header{
+    overflow: auto; /* forces header to fit to figure */
+}
+
+h2{
+    
+    text-align: center;
+}
+
+/* -----------------------Table---------------------*/
+table {
+   
+    border: 5px solid #6EA4A1;
+    margin-left: auto;
+    margin-right: auto;
+}
+th{
+    background-color:infobackground; 
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    padding: 0.7em 0 0.7em 0;
+     font-size: 16px;
+     color: #919191;
+}
+
+tr:nth-child(odd){
+    background-color:lightgrey;
+    font-family: "Times New Roman", Times, serif;
+    
+}
+    
+tr:nth-child(even){
+    background-color: window;
+    font-family: "Times New Roman", Times, serif;
+    
+}
+td {
+    padding: 0.5em 0 0.5em 0;
 }

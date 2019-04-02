@@ -24,7 +24,7 @@ if (DEBUG) {
     print '</pre></p>';
 }
 
-print '<h2 class="alternateRows">Simple data for VT</h2>';
+print '<h2>Simple data for VT</h2>';
 ?>
 <table>
 <tr>
