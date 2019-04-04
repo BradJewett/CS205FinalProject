@@ -8,7 +8,7 @@ include 'top.php';
 $records = '';
 
 $query = 'SELECT `STATION`, `NAME`, `DATE`, `AWND`, `PRCP`, '
-        . '`SNOW`, `SNWD`, `TAVG`, `TMAX`, `TMIN`, `WESD`, `WESF` FROM `VT-WEATHER` LIMIT 100';
+        . '`SNOW`, `SNWD`, `TAVG`, `TMAX`, `TMIN`, `WESD`, `WESF` FROM `tblRecords` LIMIT 300';
 //$query = 'SELECT `STATION`, `DATE` FROM `VT-WEATHER`';
 // NOTE: The full method call would be:
 //           $thisDatabaseReader->querySecurityOk($query, 0, 0, 0, 0, 0)
