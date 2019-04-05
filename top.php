@@ -26,7 +26,16 @@
 
         include LIB_PATH . '/Connect-With-Database.php';
 
+        $PATH_PARTS = pathinfo($url);
+
         print '<!-- libraries complete-->';
+        
+        //*****************creates an erro log for the php code to help with debugging*****************//
+        error_reporting(E_ALL);
+        // writes over the file to delete it so that I can only see the most recent errors
+        $file = fopen("final_project.log", 'w');
+        fclose($file);
+        ini_set("error_log", "final_project.log");
         ?>	
 
     </head>
