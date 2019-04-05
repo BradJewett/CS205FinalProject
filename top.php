@@ -26,9 +26,8 @@
 
         include LIB_PATH . '/Connect-With-Database.php';
 
-        $PATH_PARTS = pathinfo($url);
-
         print '<!-- libraries complete-->';
+
         
         //*****************creates an erro log for the php code to help with debugging*****************//
         error_reporting(E_ALL);
