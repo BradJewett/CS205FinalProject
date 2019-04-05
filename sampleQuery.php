@@ -55,5 +55,8 @@ if (is_array($records)) {
    //print '<p>' . $record['STATION'] . ' ' . $record['DATE'] . '</p>';
         }
 }
+
+
+
 include 'footer.php';
 ?>
