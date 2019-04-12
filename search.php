@@ -12,7 +12,6 @@ if ($thisDatabaseReader->querySecurityOk($query, 0)) {
 
 $state_choose = "";
 
-
 $state_choose = htmlentities($_POST["lstStates"], ENT_QUOTES, "UTF-8");
 
  if (DEBUG){ 
@@ -74,7 +73,10 @@ if (isset($_POST["btnSubmit-state"])) {
     print $state_choose;
     }
   
-    $query_station = 'SELECT `NAME` FROM `tblRecords` WHERE `STATE` = ?';
+    
+    print $state_choose;
+    $query_station = 'SELECT `NAME` FROM `tbl'. $state_choose . '` WHERE `STATE` = ?';
+    
     $selected_state = array($state_choose);
     
     if ($thisDatabaseReader->querySecurityOk($query_station, 1)) {
