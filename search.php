@@ -103,9 +103,9 @@ if (isset($_POST["btnSubmit-state"])) {
            <fieldset>
            		<legend>Choose which attributes to display</legend>
            		<?php 
-           		$attributes[] = ["Precipitation", "Snow Depth", "Snowfall", "Average Temperature", "Maximum Temperature", "Minimum Temperature", "Water Equivilent of Snow on the Ground"];
+           		$attributes[] = array("Precipitation", "Snow Depth", "Snowfall", "Average Temperature", "Maximum Temperature", "Minimum Temperature", "Water Equivilent of Snow on the Ground");
 
-           		for ($attributes as $atr) {
+           		foreach ($attributes as $atr) {
            			print '<input type = "checkbox" name = "lstAttributes[]" id = "lstAttributes" value = "' . $atr . '">' . PHP_EOL;
            		}
            		?>
