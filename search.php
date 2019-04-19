@@ -73,8 +73,6 @@ if (isset($_POST["btnSubmit-state"])) {
     print $state_choose;
     }
   
-    
-    print $state_choose;
     $query_station = 'SELECT `NAME` FROM `tbl'. $state_choose . '` WHERE `STATE` = ?';
     
     $selected_state = array($state_choose);
@@ -109,7 +107,7 @@ if (isset($_POST["btnSubmit-state"])) {
                     <legend>Weather Records - Stations</legend>    
                 <?php
                 foreach($checkbox_station as $station){
-                print '<input type="checkbox" name = "lstStations[]" id = "lstStations" value="' . $station . '" >' . $station . "<br>";
+                print '<input type="checkbox" name = "lstStation[]" id = "lstStations" value="' . $station . '" >' . $station . "<br>";
                 
             }
             ?>
@@ -119,18 +117,20 @@ if (isset($_POST["btnSubmit-state"])) {
                 <input class = "button" id = "btnSubmit-station" name = "btnSubmit-station" tabindex = "900" type = "submit" value = "Submit" >
             </fieldset> 
 </form>  
-  
+        
 <?php
+
 }  
     
-    if (isset($_GET["lstStations"])) {
-        print "**********************************************";
-        $station_choose = $_GET["lstStations"];
-        foreach ($station_choose as $station){
+   if (isset($_POST["btnSubmit-station"])) {
+       
+       
+        
+        foreach ($_POST["lstStation"] as $station){
             print $station;
-            print "<br";
-        }
-    }
+            print "<br>";
+       }
+    } 
 ?>
 
 
