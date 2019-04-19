@@ -1,5 +1,6 @@
 <?php
 include 'top.php';
+
 $query = "SELECT `STATE`, `NAME` FROM `tblStates`";
 if ($thisDatabaseReader->querySecurityOk($query, 0)) {
     $query = $thisDatabaseReader->sanitizeQuery($query);
@@ -85,6 +86,7 @@ if (isset($_POST["btnSubmit-state"])) {
     }
     }
     ?>
+
 <form action = "<?php print $phpSelf; ?>"
           id = "formStations"
           method = "post">
@@ -103,10 +105,11 @@ if (isset($_POST["btnSubmit-state"])) {
            <fieldset>
            		<legend>Choose which attributes to display</legend>
            		<?php 
-           		$attributes[] = array("Precipitation", "Snow Depth", "Snowfall", "Average Temperature", "Maximum Temperature", "Minimum Temperature", "Water Equivilent of Snow on the Ground");
+           		$attributes = array("Precipitation", "SnowDepth", "Snowfall", "AverageTemperature", "MaximumTemperature", "MinimumTemperature", "WaterEquivilent");
 
            		foreach ($attributes as $atr) {
-           			print '<input type = "checkbox" name = "lstAttributes[]" id = "lstAttributes" value = "' . $atr . '">' . PHP_EOL;
+                $name = $atr;
+           			print '<input type = "checkbox" name = "chk' . $name . '" id = "chk' . $name . '" value = "' . $name . '">' . $name . '</input>' . PHP_EOL;
            		}
            		?>
            	</fieldset>
@@ -117,8 +120,9 @@ if (isset($_POST["btnSubmit-state"])) {
                 <input class = "button" id = "btnSubmit-station" name = "btnSubmit-station" tabindex = "900" type = "submit" value = "Submit" >
             </fieldset> 
 </form>  
-  
+ 
 <?php
+
 }  
     
     if (isset($_GET["lstStations"])) {
@@ -129,6 +133,7 @@ if (isset($_POST["btnSubmit-state"])) {
             print "<br";
         }
     }
+
 ?>
 
 
