@@ -15,7 +15,6 @@ $query = 'SELECT `STATION`, `NAME`, `DATE`, `AWND`, `PRCP`, '
 if ($thisDatabaseReader->querySecurityOk($query, 0)) {
     $query = $thisDatabaseReader->sanitizeQuery($query);
     $records = $thisDatabaseReader->select($query, '');
-    
 }
 
 if (DEBUG) {

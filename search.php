@@ -87,7 +87,7 @@ if (isset($_POST["btnSubmit-state"])) {
     }
     ?>
 
-<form action = "<?php print $phpSelf; ?>"
+<form action = "results.php"
           id = "formStations"
           method = "post">
 
