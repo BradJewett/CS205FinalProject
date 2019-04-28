@@ -64,8 +64,6 @@ if (isset($_POST["btnSubmit-state"])) {
     print $state_choose;
     }
   
-    
-    
     $query_station = 'SELECT `NAME` FROM `tbl'. $state_choose . '` WHERE `STATE` = ?';
     
     $selected_state = array($state_choose);
@@ -121,6 +119,7 @@ if (isset($_POST["btnSubmit-state"])) {
                 } else {
                   $shortName = $namePartsLong[0];
                 }
+
                 
                 print '<input type="checkbox" name = "lstStations[]" id = "lstStations" value="' . $checkbox_station[$n] . '" >' . substr($shortName, 0, 20) . "<br>";      
                 }
@@ -162,19 +161,23 @@ if (isset($_POST["btnSubmit-state"])) {
                 <input class = "button" id = "btnSubmit-station" name = "btnSubmit-station" tabindex = "900" type = "submit" value = "Submit" >
             </fieldset> 
 </form>  
- 
+
+        
+
 <?php
 
 }  
     
-    if (isset($_GET["lstStations"])) {
-        print "**********************************************";
-        $station_choose = $_GET["lstStations"];
-        foreach ($station_choose as $station){
+   if (isset($_POST["btnSubmit-station"])) {
+       
+       
+        
+        foreach ($_POST["lstStation"] as $station){
             print $station;
-            print "<br";
-        }
-    }
+
+            print "<br>";
+       }
+    } 
 
 ?>
 
