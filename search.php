@@ -145,21 +145,23 @@ if (isset($_POST["btnSubmit-state"])) {
          <h3 class = "sectionHeader">Attribute Selection</h3>
            <!-- Attribute Selection Interface -->
            <fieldset id = "attributeSelect">
-           		<?php 
-           		$attributes = array("Precipitation", "SnowDepth", "Snowfall", "AverageTemperature", "MaximumTemperature", "MinimumTemperature", "WaterEquivilent");
+              <?php 
+              $attributes = array("Precipitation", "SnowDepth", "Snowfall", "AverageTemperature", "MaximumTemperature", "MinimumTemperature", "WaterEquivilent");
 
-           		foreach ($attributes as $atr) {
+              foreach ($attributes as $atr) {
                 $name = $atr;
-           			print '<input type = "checkbox" name = "lstAttributes[]" id = "lstAttributes" value = "' . $name . '">' . $name . '</input>' . PHP_EOL; 
-           		}
-           		?>
-           	</fieldset>
-           	<!-- End Attribute Selection Interface -->
+                print '<input type = "checkbox" name = "lstAttributes[]" id = "lstAttributes" value = "' . $name . '">' . $name . '</input>' . PHP_EOL; 
+              }
+              ?>
+            </fieldset>
+            <!-- End Attribute Selection Interface -->
 
             <fieldset class="buttons">
                 <legend></legend>
                 <input class = "button" id = "btnSubmit-station" name = "btnSubmit-station" tabindex = "900" type = "submit" value = "Submit" >
             </fieldset> 
+
+            <input type = "hidden" name = "state_choose" value = <?php print $state_choose; ?> >
 </form>  
 
         
