@@ -7,7 +7,6 @@ if ($thisDatabaseReader->querySecurityOk($query, 0)) {
     $states = $thisDatabaseReader->select($query, '');
 }
 
-
 $state_choose = "";
 $state_choose = htmlentities($_POST["lstStates"], ENT_QUOTES, "UTF-8");
  if (DEBUG){ 
@@ -18,8 +17,6 @@ $state_choose = htmlentities($_POST["lstStates"], ENT_QUOTES, "UTF-8");
  }
 
 ?>
-
-
 
 <div id = "mainBody">
 
@@ -97,7 +94,6 @@ if (isset($_POST["btnSubmit-state"])) {
 
 
     ?>
-
 
 <form action = "results.php"
           id = "formStations"
