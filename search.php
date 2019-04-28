@@ -6,6 +6,7 @@ if ($thisDatabaseReader->querySecurityOk($query, 0)) {
     $query = $thisDatabaseReader->sanitizeQuery($query);
     $states = $thisDatabaseReader->select($query, '');
 }
+
 $state_choose = "";
 $state_choose = htmlentities($_POST["lstStates"], ENT_QUOTES, "UTF-8");
  if (DEBUG){ 
@@ -14,15 +15,16 @@ $state_choose = htmlentities($_POST["lstStates"], ENT_QUOTES, "UTF-8");
     print '</'
     . 'pre>';
  }
+
 ?>
 
+<div id = "mainBody">
 
 <form action = "<?php print $phpSelf; ?>"
           id = "formStates"
           method = "post">
-
-                <fieldset>
-                    <legend>Weather Records - States (Please only select "Vermont". Our database only contains VT records for now!)</legend>    
+          <h3 class = "sectionHeader">State Selection</h3>
+                <fieldset>  
                     
                     <p>
                         <?php
@@ -59,8 +61,6 @@ if (isset($_POST["btnSubmit-state"])) {
     print $state_choose;
     }
   
-    
-    print $state_choose;
     $query_station = 'SELECT `NAME` FROM `tbl'. $state_choose . '` WHERE `STATE` = ?';
     
     $selected_state = array($state_choose);
@@ -85,31 +85,68 @@ if (isset($_POST["btnSubmit-state"])) {
         print "<br>";
     }
     }
+
+
+    //Find the full state name
+    $stateName = "";
+    foreach($states as $state) {
+      if ($state["STATE"] == $state_choose) {
+        $stateName = $state["NAME"];
+      }
+    }
+
+
     ?>
 
 <form action = "results.php"
           id = "formStations"
           method = "post">
-
-                <fieldset>
-                    <legend>Weather Records - Stations</legend>    
+          <?php print '<h3 class = "sectionHeader">Station Selection (' . $state_choose . ')</h3>'; ?>
+                <div>
+                <fieldset  id = "weatherStations"> 
+                      <div class = "stationOutput">  
                 <?php
-                foreach($checkbox_station as $station){
-                print '<input type="checkbox" name = "lstStations[]" id = "lstStations" value="' . $station . '" >' . $station . "<br>";
-                
-            }
-            ?>
-           </fieldset> 
+                for ($n = 0; $n < sizeof($checkbox_station); $n = $n + 2) {
+                $namePartsShort = explode(", " . $state_choose, $checkbox_station[$n]);
+                $namePartsLong = explode(" " . strtoupper($stateName), $checkbox_station[$n]);
+                $shortName = "wrong";
+                if (strlen($namePartsShort[0]) < strlen($namePartsLong[0]) ) {
+                  $shortName = $namePartsShort[0];
+                } else {
+                  $shortName = $namePartsLong[0];
+                }
 
+                
+                print '<input type="checkbox" name = "lstStations[]" id = "lstStations" value="' . $checkbox_station[$n] . '" >' . substr($shortName, 0, 20) . "<br>";      
+                }
+                ?>
+                </div>
+                <div class = "stationOutput">
+                <?php
+                for ($n = 1; $n < sizeof($checkbox_station); $n = $n + 2) {
+                $namePartsShort = explode(", " . $state_choose, $checkbox_station[$n]);
+                $namePartsLong = explode(" " . strtoupper($stateName), $checkbox_station[$n]);
+                $shortName = "wrong";
+                if (strlen($namePartsShort[0]) < strlen($namePartsLong[0]) ) {
+                  $shortName = $namePartsShort[0];
+                } else {
+                  $shortName = $namePartsLong[0];
+                }
+                print '<input type="checkbox" name = "lstStations[]" id = "lstStations" value="' . $checkbox_station[$n] . '" >' . substr($shortName, 0, 20) . "<br>";      
+                }
+                ?>
+              </div>
+           </fieldset> 
+         </div>
+         <h3 class = "sectionHeader">Attribute Selection</h3>
            <!-- Attribute Selection Interface -->
-           <fieldset>
-           		<legend>Choose which attributes to display</legend>
+           <fieldset id = "attributeSelect">
            		<?php 
            		$attributes = array("Precipitation", "SnowDepth", "Snowfall", "AverageTemperature", "MaximumTemperature", "MinimumTemperature", "WaterEquivilent");
 
            		foreach ($attributes as $atr) {
                 $name = $atr;
-           			print '<input type = "checkbox" name = "chk' . $name . '" id = "chk' . $name . '" value = "' . $name . '">' . $name . '</input>' . PHP_EOL;
+           			print '<input type = "checkbox" name = "lstAttributes[]" id = "lstAttributes" value = "' . $name . '">' . $name . '</input>' . PHP_EOL; 
            		}
            		?>
            	</fieldset>
@@ -120,21 +157,28 @@ if (isset($_POST["btnSubmit-state"])) {
                 <input class = "button" id = "btnSubmit-station" name = "btnSubmit-station" tabindex = "900" type = "submit" value = "Submit" >
             </fieldset> 
 </form>  
- 
+
+        
+
 <?php
 
 }  
     
-    if (isset($_GET["lstStations"])) {
-        print "**********************************************";
-        $station_choose = $_GET["lstStations"];
-        foreach ($station_choose as $station){
+   if (isset($_POST["btnSubmit-station"])) {
+       
+       
+        
+        foreach ($_POST["lstStation"] as $station){
             print $station;
-            print "<br";
-        }
-    }
+
+            print "<br>";
+       }
+    } 
 
 ?>
+
+</div>
+
 
 
 

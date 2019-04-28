@@ -21,10 +21,8 @@ print("</p>");
 $query = 'SELECT ';
 $headers = array('STATION', 'DATE');
 
-foreach($_POST as $attribute) {
-    if(gettype($attribute) != 'array' && $attribute != "Submit") {
-        array_push($headers, $attribute);
-    }
+foreach($_POST['lstAttributes'] as $attribute) {
+    array_push($headers, $attribute);
 }
 
 $attributes = array("Precipitation", "SnowDepth", "Snowfall", "AverageTemperature", "MaximumTemperature", "MinimumTemperature", "WaterEquivilent");

@@ -1,6 +1,5 @@
 <header>
-         
-    <h1>United States Weather Report</h1>
-    
-    
+	<figure>
+			<image src = "images/SiteLogo.png" alt = "Weather Records Database" height="150">
+	</figure> 
 </header>
