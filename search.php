@@ -27,13 +27,10 @@ $state_choose = htmlentities($_POST["lstStates"], ENT_QUOTES, "UTF-8");
           id = "formStates"
           method = "post">
           <h3 class = "sectionHeader">State Selection</h3>
-                <fieldset>  
+                <fieldset id = "stateSelect">  
                     
                     <p>
                         <?php
-                        print '<label for="lstStates"';
-                        
-                    print '> States: ';
                     print '<select id="lstStates" ';
                     print '        name="lstStates"';
                     print '        tabindex="300" >';
@@ -45,7 +42,7 @@ $state_choose = htmlentities($_POST["lstStates"], ENT_QUOTES, "UTF-8");
                         print 'value="' . $state["STATE"] . '">' . $state["NAME"];
                         print '</option>';
                     }
-                    print '</select></label>';
+                    print '</select>';
                    
                         ?>
                     </p>
@@ -148,10 +145,28 @@ if (isset($_POST["btnSubmit-state"])) {
               <?php 
               $attributes = array("Precipitation", "SnowDepth", "Snowfall", "AverageTemperature", "MaximumTemperature", "MinimumTemperature", "WaterEquivilent");
 
-              foreach ($attributes as $atr) {
-                $name = $atr;
-                print '<input type = "checkbox" name = "lstAttributes[]" id = "lstAttributes" value = "' . $name . '">' . $name . '</input>' . PHP_EOL; 
+              print '<div class = "stationOutput">';
+              for ($n = 0; $n < sizeof($attributes); $n = $n + 2) {
+                $name = $attributes[$n];
+                $nameWords = preg_split('/(?=[A-Z])/',$name);
+                print '<p><input type = "checkbox" name = "lstAttributes[]" id = "lstAttributes" value = "' . $name . '"> ';
+                  foreach($nameWords as $word) {
+                    print $word . " ";
+                  }
+                print ' </input></p>' . PHP_EOL;
               }
+              print '</div><div class = "stationOutput">';
+
+              for ($n = 1; $n < sizeof($attributes); $n = $n + 2) {
+                $name = $attributes[$n];
+                $nameWords = preg_split('/(?=[A-Z])/',$name);
+                print '<p><input type = "checkbox" name = "lstAttributes[]" id = "lstAttributes" value = "' . $name . '"> ';
+                  foreach($nameWords as $word) {
+                    print $word . " ";
+                  }
+                print ' </input></p>' . PHP_EOL;
+              }
+              print '</div>';
               ?>
             </fieldset>
             <!-- End Attribute Selection Interface -->
