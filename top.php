@@ -34,6 +34,7 @@
     <!-- **********************     Body section      ********************** -->
      <?php
     print '<body id="' . $PATH_PARTS['filename'] . '">';
+    print '<div id="bodyContainer">';
     include 'header.php';
     include 'nav.php';
     
