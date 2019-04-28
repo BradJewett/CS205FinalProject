@@ -19,7 +19,7 @@ foreach($_POST as $item) {
 print("</p>");
 
 $query = 'SELECT ';
-$headers = array('STATION', 'DATE');
+$headers = array('NAME', 'DATE');
 
 foreach($_POST['lstAttributes'] as $attribute) {
     array_push($headers, $attribute);
@@ -43,14 +43,14 @@ for($i = 0; $i < sizeof($headers); $i++) {
     print($query . "<br />");
 }
 
-$query = $query . "FROM `tblVT` ";
+$query = $query . "FROM 'tbl" .  $_POST['state_choose'] . "' ";
 
 $query = $query . "WHERE ";
 for($i = 0; $i < sizeof($_POST['lstStations']); $i++) {
     if($i != 0) {
         $query = $query . "OR ";
     }
-    $query = $query . "'STATION' LIKE '" . $_POST['lstStations'][$i] . "' ";
+    $query = $query . "'NAME' = '" . $_POST['lstStations'][$i] . "' ";
     print($query . "<br />");
 }
 
@@ -69,7 +69,7 @@ print($query . "<br />");
 // OR STATION LIKE '%GREENSBORO%';";
 
 $records = "";
-        
+
 if ($thisDatabaseReader->querySecurityOk($query, 0)) {
     $query = $thisDatabaseReader->sanitizeQuery($query);
     $records = $thisDatabaseReader->select($query, '');
