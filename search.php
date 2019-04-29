@@ -23,7 +23,7 @@ $state_choose = htmlentities($_POST["lstStates"], ENT_QUOTES, "UTF-8");
 <form action = "<?php print $phpSelf; ?>"
           id = "formStates"
           method = "post">
-          <h3 class = "sectionHeader">State Selection</h3>
+          <img class = "sectionHeader" src="images/states.png">
                 <fieldset id = "stateSelect">  
                     
                     <p>
@@ -98,7 +98,7 @@ if (isset($_POST["btnSubmit-state"])) {
 <form action = "results.php"
           id = "formStations"
           method = "post">
-          <?php print '<h3 class = "sectionHeader">Station Selection (' . $state_choose . ')</h3>'; ?>
+          <img class = "sectionHeader" src="images/stations.png">
                 <div>
                 <fieldset  id = "weatherStations"> 
                       <div class = "stationOutput">  
@@ -135,7 +135,7 @@ if (isset($_POST["btnSubmit-state"])) {
               </div>
            </fieldset> 
          </div>
-         <h3 class = "sectionHeader">Attribute Selection</h3>
+         <img class = "sectionHeader" src="images/attributes.png">
            <!-- Attribute Selection Interface -->
            <fieldset id = "attributeSelect">
               <?php 

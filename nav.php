@@ -23,13 +23,6 @@
         }
         print '><a href="help.php">Help</a></li>';
         
-        print '<li ';
-        if ($PATH_PARTS['filename'] == 'sampleQuery') {
-            print ' class="activePage" ';
-        }
-        print '><a href="sampleQuery.php">SampleQuery</a></li>';
-        
-       
         ?>
     </ul>
 </nav>

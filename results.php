@@ -84,7 +84,7 @@ $data = $records;
 // print_r($records);
 // print("</pre>");
 
-print("<table border=1px>");
+print('<table id = "outputTable">');
 foreach ($headers as $header) {
     print("<th>");
     print($header);
@@ -100,7 +100,7 @@ foreach ($data as $item) {
     }
     print("</tr>");
 }
-
+print("</table>");
 
 include 'footer.php';
 ?>

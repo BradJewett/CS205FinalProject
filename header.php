@@ -1,5 +1,5 @@
 <header>
 	<figure>
-			<image src = "images/SiteLogo.png" alt = "Weather Records Database" height="150">
+			<image id = "banner" src = "images/banner.png" alt = "Weather Records Database">
 	</figure> 
 </header>
